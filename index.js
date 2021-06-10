@@ -12,7 +12,9 @@ import './style.css';
 // возможно позже я оптимизирую код, что бы не создавать каждый раз
 // слушателя под каждую кнопку, но, это не точно
 const less1 = document.getElementById('lession1');
+let div1 = document.getElementById('div1');
 less1.addEventListener('click', seeLess1);
+div1.append('stroka');
 
 function seeLess1() {
   const addElement = document.createElement('pre');
@@ -27,9 +29,8 @@ function seeLess1() {
   addDelKey.innerText = '"Скрыть"';
   addAlertKey.innerText = 'Показать alert (console log)';
 
-  document.body.append(addElement);
-  document.body.append(addDelKey);
-  document.body.append(addAlertKey);
+  div1.append(addElement, addDelKey, addAlertKey);
+
   addDelKey.addEventListener('click', clearLes1);
   addAlertKey.onclick = function() {
     console.log('ne rabotaet alert');
@@ -110,7 +111,7 @@ function consolka() {
 const less4 = document.getElementById('lession4');
 less4.addEventListener('click', nameForm);
 function nameForm() {
-  let inputFotm = document.createElement('input');
+  let inputForm = document.createElement('input');
   let zapros = document.createElement('div');
   let otvet = document.createElement('textArea');
   const delLess4 = document.createElement('button');
@@ -120,26 +121,27 @@ function nameForm() {
   sumButton.innerText = 'внос значeния?';
   document.body.append(sumButton);
   sumButton.addEventListener('click', () => {
-    otvet.innerText = document.inputFotm.innerText;
+    otvet.value = inputForm.value;
   });
-  // голова трещит =( я вроде в правильном направлении, но, не могу доделать пока что
 
   delLess4.id = 'delLess4';
   delLess4.innerText = '"Clear area!!!"';
   zapros.id = 'zapros';
   zapros.innerText = 'Введите ваше имя';
-  inputFotm.id = 'inputFotm';
-  inputFotm.innerText = 'имя?';
+  inputForm.id = 'inputForm';
+  inputForm.innerText = 'имя?';
   otvet.id = 'otvet';
   document.body.append(zapros);
-  document.body.append(inputFotm);
+  document.body.append(inputForm);
   document.body.append(otvet);
   document.body.append(delLess4);
   delLess4.addEventListener('click', clearLes4);
+
   function clearLes4() {
     document.getElementById('zapros').remove();
-    document.getElementById('inputFotm').remove();
+    document.getElementById('inputForm').remove();
     document.getElementById('otvet').remove();
     document.getElementById('delLess4').remove();
+    document.getElementById('sumButton').remove();
   }
 }
