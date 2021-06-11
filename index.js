@@ -129,7 +129,7 @@ function nameForm() {
   zapros.id = 'zapros';
   zapros.innerText = 'Введите ваше имя';
   inputForm.id = 'inputForm';
-  inputForm.innerText = 'имя?';
+  // inputForm.innerText = 'имя?';
   otvet.id = 'otvet';
   document.body.append(zapros);
   document.body.append(inputForm);
@@ -144,4 +144,9 @@ function nameForm() {
     document.getElementById('delLess4').remove();
     document.getElementById('sumButton').remove();
   }
+}
+const less5 = document.getElementById('lession5');
+less5.addEventListener('click', personaList);
+function personaList() {
+  let div5 = document.getElementById('div5');
 }
